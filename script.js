@@ -1,5 +1,17 @@
 var selectedRow = null
 
+function onFormSubmit(e) {
+	event.preventDefault();
+        var formData = readFormData();
+        if (selectedRow == null){
+            insertNewRecord(formData);
+		}
+        else{
+            updateRecord(formData);
+		}
+        resetForm();    
+}
+
 function readFormData() {
     var formData = {};
     formData["productCode"] = document.getElementById("productCode").value;
